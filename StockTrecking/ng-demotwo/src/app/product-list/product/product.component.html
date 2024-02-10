@@ -1,0 +1,29 @@
+<!-- Ürünü İncele buranın bi mantığı kalmadı hüseyin abime göster -->
+
+<div class="card mb-3" *ngIf="product; else noProduct">
+  <div class="row">
+    <!-- resim eklemek istersek -->
+    <div class="col-3">
+      <!-- <img
+        src="/assets/images/{{ product.imageUrl }}"
+        alt=""
+        class="img-fluid rounded-start"
+      /> -->
+    </div> 
+    <div class="col-9">
+      <div class="card-body">
+        <h5>{{ product.name }}</h5>
+        <p class="card-text">{{ product.sellerName }}</p>
+        <p class="card-text">{{ product.brandName }}</p>
+        <p class="card-text">{{ product.productDetail }}</p>
+        <p class="card-text">{{ product.stockAmount }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noProduct>
+  <div class="alert alert-warning">
+    Listelenecek Herhangi Bir Ürün Bulunamadı!
+  </div>
+</ng-template>

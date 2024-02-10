@@ -1,0 +1,14 @@
+
+  .content {
+    margin-top: 20%;
+    margin-bottom: 50%;
+    color: #fff;
+    opacity: 80%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .fp-e {
+    display: inline-block;
+    justify-content: space-between;
+  }
+  

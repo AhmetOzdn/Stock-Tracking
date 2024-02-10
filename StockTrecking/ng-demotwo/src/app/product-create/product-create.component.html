@@ -1,0 +1,49 @@
+<div>
+<form #productCreateForm="ngForm" class="container" (ngSubmit)="saveProduct(productCreateForm)">
+    <h3 class="text-center my-3">Ürün Ekle</h3>
+
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Ürün İsmi</label>
+        <input required minlength="3" type="text" name="customerName" #customerName="ngModel" [(ngModel)]="model.customerName" id="customerName" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="customerName.invalid && customerName.touched">
+            Ürün İsmi en az 3 karakter olmalıdır.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="brandName" class="form-label">Marka İsmi</label>
+        <input required minlength="3" type="text" name="brandName" #brandName="ngModel" [(ngModel)]="model.brandName" id="brandName" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="brandName.invalid && brandName.touched">
+            Marka İsmi en az 3 karakter olmalıdır.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="sellerName" class="form-label">Satıcı İsmi</label>
+        <input required type="text" minlength="3" name="sellerName" #sellerName="ngModel" [(ngModel)]="model.sellerName" id="sellerName" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="sellerName.invalid && sellerName.touched">
+            Satıcı İsmi en az 3 karakter olmalıdır.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="productDetail">Ürün Detayı</label>
+        <textarea required type="text" minlength="3" name="productDetail" #productDetail="ngModel" [(ngModel)]="model.productDetail" id="productDetail" class="form-control"></textarea>
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="productDetail.invalid && productDetail.touched">
+            Ürün detayı en az 3 karakter olmalıdır.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="stockAmount" class="form-label">Stok Miktarı</label>
+        <input required type="number" min="1" name="stockAmount" #stockAmount="ngModel" [(ngModel)]="model.stockAmount" id="stockAmount" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="stockAmount.invalid && stockAmount.touched">
+           Stok miktarı en az 1 olmalıdır.
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-outline-success" [disabled]="productCreateForm.invalid">Ürünü Kaydet</button>
+</form>
+</div>

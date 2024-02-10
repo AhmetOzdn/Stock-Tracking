@@ -1,0 +1,31 @@
+
+<div class="p-5"> <form action="">
+    <h2 class="text-center my-3">Ürün Düzenle</h2>
+    <div class="mb-3">
+        <label for="name" class="form-label">Ürün İsmi</label>
+        <input #name type="text" name="name"  value="{{data.name}}" id="name" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="brandName" class="form-label">Marka İsmi</label>
+        <input #brandName type="text" name="brandName" value="{{data.brandName}}" id="brandName" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="sellerName" class="form-label">Satıcı İsmi</label>
+        <input #sellerName type="text" name="sellerName" value="{{data.sellerName}}" id="sellerName" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="productDetail">Ürün Detayı</label>
+        <textarea #productDetail type="text" name="productDetail"  value="{{data.productDetail}}" id="productDetail" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="stockAmount" class="form-label">Stok Miktarı</label>
+        <input #stockAmount type="number" name="stockAmount"  value="{{data.stockAmount}}" id="stockAmount" class="form-control">
+    </div>
+    
+
+</form>
+<div class="text-center my-5">
+<a href="/products" class="btn btn-outline-success mx-2" (click)="uptadeProduct(name,brandName,sellerName,productDetail,stockAmount)" >Ürünü Güncelle</a> <!--(click)="updateProduct()"  (click)="saveProduct(name,brandName,sellerName,productDetail,stockAmount)" -->
+<!-- <button class="btn btn-outline-danger mx-2" (click)="close()">Kapat</button> -->
+</div>
+</div>

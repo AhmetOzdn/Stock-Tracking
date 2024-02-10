@@ -1,0 +1,55 @@
+<div>
+
+<form #customerCreateForm="ngForm" class="container" (ngSubmit)="saveCustomer(customerCreateForm)">
+    <h3 class="my-3 text-center">Müşteri Ekle</h3>
+    <!-- <div class="alert alert-danger" *ngIf="customerCreateForm.invalid">
+            {{error}}
+    </div> -->
+    <div class="mb-3">
+        <label for="customerName" class="form-label">Müşteri İsmi</label>
+        <input required minlength="5" #name="ngModel" [(ngModel)]="model.name" type="text" name="customerName" id="customerName" class="form-control">
+        <!-- hata mesajı -->
+        <div class="text-danger mt-1" *ngIf="name.invalid && name.touched">
+            Müşteri ismi en az 5 karakter olmalıdır.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="companyName" class="form-label">Şirket İsmi</label>
+        <input required #companyName="ngModel" minlength="5" [(ngModel)]="model.companyName" type="text" name="companyName" id="companyName" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="companyName.invalid && companyName.touched">
+            Şirket ismi en az 5 karakter olmalıdır.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">E-Mail</label>
+        <input required email="email" #email="ngModel" [(ngModel)]="model.email" type="email" name="email" id="email" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="email.invalid && email.touched">
+            Lütfen bir E-Mail giriniz.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="phoneNumber">Telefon Numarası</label>
+        <input required #phoneNumber="ngModel" maxlength="11" minlength="11" [(ngModel)]="model.phoneNumber" type="tel" name="phoneNumber" id="phoneNumber" class="form-control">
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+            Lütfen bir telefon numarası giriniz.
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label for="adress" class="form-label">Adres</label>
+        <textarea required minlength="3" #adress="ngModel" [(ngModel)]="model.adress"  name="adress" id="adress" class="form-control"></textarea>
+         <!-- hata mesajı -->
+         <div class="text-danger mt-1" *ngIf="adress.invalid && adress.touched">
+            Adres en az 3 karakter olmalıdır.
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-outline-success" [disabled]="customerCreateForm.invalid">Müşteriyi Kaydet</button>
+</form>
+</div>

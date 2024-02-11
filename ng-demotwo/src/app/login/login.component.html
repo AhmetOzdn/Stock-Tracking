@@ -1,0 +1,23 @@
+<div class="container">
+  
+    <h3 class="text-center my-3">Giriş Yap</h3>
+    <div class="alert alert-danger text-center" *ngIf="error">
+        {{error}}
+    </div>
+<form #login="ngForm" (ngSubmit)="loginFormControl(login)">
+    <div class="mb-3">
+        <label for="email" class="form-label">E-Mail</label>
+        <input type="email"  required email ngModel name="email" id="email" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="password"  class="form-label">Parola</label>
+        <input type="password" required minlength="6" ngModel name="password" id="password" class="form-control">
+    </div>
+
+    <!-- buttonlar -->
+    <div class="d-grid gap-2">
+    <button type="submit" class=" btn btn-primary" [disabled]="login.invalid">Giriş Yap</button>
+    </div>
+</form>
+</div>

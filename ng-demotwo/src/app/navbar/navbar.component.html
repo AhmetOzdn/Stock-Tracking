@@ -1,0 +1,55 @@
+
+ <!-- navbar -->
+ <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/"
+      >Stock <span class="bg-warning rounded text-dark p-1">Trade</span></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a routerLink="/" class="nav-link">Ana Sayfa</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAuthenticated" routerLink="products" class="nav-link">Ürünler</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAuthenticated" routerLink="customers" class="nav-link">Müşteriler</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAuthenticated" routerLink="products/create" class="nav-link">Ürün Ekle</a>
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAuthenticated" routerLink="customers/create" class="nav-link">Müşteri Ekle</a>
+        </li>
+      </ul>
+
+      <!-- Register -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a *ngIf="!isAuthenticated" routerLink="/login" class="nav-link">Giriş Yap</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="!isAuthenticated" routerLink="/register" class="nav-link">Kayıt Ol</a>
+        </li>
+        <li class="nav-item">
+          <a  *ngIf="isAuthenticated"  (click)="logOut()" routerLink="/auth" class="nav-link">Çıkış Yap</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a  *ngIf="isAuthenticated"  (click)="refreshToken()" routerLink="" class="nav-link">refresh Yap</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>

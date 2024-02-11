@@ -1,0 +1,75 @@
+<div *ngIf="customers.length > 0; else noCustomers">
+  <ng-template [ngTemplateOutlet]="customerList"></ng-template>
+</div>
+
+<!-- herhangi bir sorgu yapılmadı lüste her halukarda gösteriliyor -->
+<!-- <ng-template #customerList>
+  <div *ngFor="let customer of customers">
+    <div  class="card mb-3">
+      <div class="card-body">
+        <h5>İsim: {{ customer.name}}</h5>
+        <p class="card-text">Şirket: {{ customer.companyName }}</p>
+        <p class="card-text">E-mail: {{ customer.email }}</p>
+        <p class="card-text">Telefon Numarası: {{ customer.phoneNumber }}</p>
+        <p class="card-text">Adres: </p>
+        <a routerLink="/customers/{{ customer.customerId }}" class="btn btn-outline-primary">Müşteri İncele</a>
+      </div>
+    </div>
+  </div>
+</ng-template> -->
+
+
+
+
+<router-outlet>
+<!-- Hiç Ürün bulunmazsa burayı çalıştıracak -->
+  <ng-template #noCustomers>
+    <div class="alert alert-warning" *ngIf="customers.length == 0">
+      Listelenecek Herhangi Bir Müşteri Bulunamadı!
+    </div>
+  </ng-template>
+
+<ng-template #customerList>
+  <table class="table table-white table-hover">
+    <thead>
+      <tr>
+        <td scope="col">İsim</td>
+        <td scope="col">Şirket</td>
+        <td scope="col">E-mail</td>
+        <td scope="col">Telefon Numarası</td>
+        <td scope="col">Adres</td>
+        <td scope="col" class="text">Düzenle</td>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.name}}</td>
+        <td>{{ customer.companyName }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phoneNumber }}</td>
+        <td>{{ customer.adress }}</td>
+        
+        <td>
+          <!-- düzenle -->
+          <a routerLink="/customers"  (click)="openDialog(customer)" class="btn btn-outline-success mx-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+          
+          </svg></a>
+          <!-- sil -->
+          <a routerLink="/customers" (click)="deleteCustomer(customer.id)" class="btn btn-outline-danger mx-1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+          </svg></a>
+          <!-- detay -->
+          <a class="btn btn-outline-primary mx-1"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square" viewBox="0 0 16 16">
+            <path d="M3.626 6.832A.5.5 0 0 1 4 6h8a.5.5 0 0 1 .374.832l-4 4.5a.5.5 0 0 1-.748 0l-4-4.5z"/>
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+          </svg></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+</router-outlet>

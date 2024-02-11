@@ -1,0 +1,82 @@
+.body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("..//..//assets/images/donny-jiang-42gFAgdIUC8-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+  }
+  .content {
+    margin-top: 20%;
+    margin-bottom: 50%;
+    color: #fff;
+    opacity: 80%;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .fp-e {
+    display: inline-block;
+    justify-content: space-between;
+  }
+
+  .footer-buttons a{
+    margin: 20px;
+  }
+  
+
+  ul {
+    color: #14213d;
+  }
+  .card-img-top img {
+    width: 100%;
+    height: 400px;
+  }
+  #card-body-color {
+    background-color: #e5e5e5;
+  }
+  #card-title-color {
+    padding: 10px 0px;
+    color: #e5e5e5;
+    background-color: #14213d;
+  }
+  #btn-card {
+    margin-top: 30px;
+    color: #e5e5e5;
+    background-color: #14213d;
+  }
+  #btn-card:hover {
+    animation-delay: 180ms;
+    color: #e5e5e5;
+    background-color: #233968;
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+  }
+  label {
+    display: flex;
+    align-items: center;
+  }
+  input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: #14213d;
+  }
+  #temel-plan-div h2 {
+    margin-bottom: 20px;
+    color: #14213d;
+  }
+  .list-group-item {
+    background-color: #e5e5e5 !important;
+    border-color: #14213d !important;
+  }
+  .card1 img {
+    clip-path: polygon(0 0, 100% 0%, 100% 70%, 0% 100%);
+  }
+  

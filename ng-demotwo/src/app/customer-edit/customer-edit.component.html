@@ -1,0 +1,29 @@
+
+<div class="p-5">
+    <h2 class="text-center my-3">Müşteri Düzenle</h2>
+    <form action="">
+        <div class="mb-3">
+            <label for="customerName" class="form-label">Müşteri İsmi</label>
+            <input #name type="text" placeholder="" name="customerName" value="{{data.name}}" id="customerName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="companyName" class="form-label">Şirket İsmi</label>
+            <input #companyName type="text" name="companyName" id="companyName" value="{{data.companyName}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input #email type="email" name="email" id="email" value="{{data.email}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber">Telefon Numarası</label>
+            <input #phoneNumber type="tel" name="phoneNumber" value="{{data.phoneNumber}}" id="phoneNumber" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="adress" class="form-label">Adres</label>
+            <textarea #adress  name="adress" value="{{data.adress}}" id="adress" class="form-control"></textarea>
+        </div>
+        
+        <a href="/customers" class="btn btn-outline-success center" (click)="updateCustomer(name,companyName,email,phoneNumber,adress)">Müşteriyi Düzenle</a>
+        
+    </form>
+    </div>

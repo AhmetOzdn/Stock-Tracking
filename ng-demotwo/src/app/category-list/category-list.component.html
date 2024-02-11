@@ -1,0 +1,20 @@
+<div class="list-group margin">
+  <a
+    (click)="selectCategory()"
+    class="list-group-item list-group-item-action"
+    [class.active]="displayAll"
+    routerLink="/products"
+  >
+    Tüm Kategoriler
+  </a>
+
+  <a
+    (click)="selectCategory(category)"
+    *ngFor="let category of categories"
+    class="list-group-item list-group-item-action"
+    [class.active]="category == selectedCategory"
+    routerLink="/products/category/{{ category.id }}"
+  >
+    {{ category.name }}
+  </a>
+</div>
